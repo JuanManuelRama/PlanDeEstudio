@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "aux.h"
 
-FILE* archivo;
-char* aux;
+typedef enum{
+    AÑADIR,
+    GRAFICAR,
+    SALIR
+}OPCIONES;
+
 
 void getMateria(char*);
 void cambiarNota(char*);
@@ -14,6 +17,9 @@ void mostrarMaterias();
 bool verificarMateria(char*);
 bool verificarNota(int);
 OPCIONES pedirDatos();
+
+FILE* archivo;
+char* aux;
 
 int main(){
     char materia [5];
