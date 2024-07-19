@@ -1,0 +1,122 @@
+digraph Programa{
+    graph [dpi=300];
+    splines=ortho
+    nodesep=0.5;
+    ranksep=1.5;
+    node [shape = rectangle, style=filled, fillcolor=white, height = 1, width = 2];
+    edge [color = red ,  tailport = _ headport = _];
+
+    //Materias
+    //Primero
+    subgraph Primero{
+        rank=same;
+        AMI[label="Análisis Matemático I \n ()"];
+        AyGA[label="Álgebra \n y \n Geometría Analítica \n ()"];
+        AyED[label="Algorítmos \n y \n Estructuras de Datos \n ()"];
+        FI[label="Física I \n ()"];
+        SyPdN[label="Sistemas \n y \n Procesos de Negocio \n ()"];
+        LyED[label="Lógica \n y \n Estructuras Discretas \n ()"];
+        AdC[label="Arquitectura \n de \n Computadoras \n ()"];
+        ITI[label="Inglés Técnico I \n ()"];
+    }
+
+    //Segundo
+    subgraph Segundo{
+        rank=same;
+        AMII[label="Análisis Matemático II \n ()"];    
+        FII[label="Física II \n ()"];
+        IyS[label="Ingeniería y Sociedad \n ()"];
+        PdP[label="Paradígmas \n de la \n Progamación \n ()"];
+        AdS[label="Análisis de Sistemas \n ()"];
+        SySL[label="Sintaxis \n y Semántica \n de los Lenguajes \n ()"];
+        ITII[label="Inglés Técnico II \n ()"];
+        SO[label="Sistemas Operativos \n ()"];
+    }
+
+    //Tercero
+    subgraph Tercero{
+        rank=same;
+        AN[label="Análisis Numérico \n ()"];
+        E[label="Economía \n ()"];
+        PyE[label="Probabilidad y Estadística \n ()"];
+        DdS[label="Diseño de Sistemas \n ()"];
+        DS[label="Desarollo de Software \n ()"];
+        BdD[label="Bases de Datos \n ()"];
+        CdD[label="Comunicación de Datos \n ()"];
+        L[label="Legislación \n ()"];
+    }
+
+    //Cuarto
+    subgraph Cuarto{
+        rank=same;      
+        TpA[label="Tecnologías \n para la \n Automatización \n ()"];
+        IO[label="Investigación Operativa \n ()"];
+        S[label="Simulación \n ()"];
+        AddS[label="Administración de Sistemas \n ()"];
+        IyCdS[label="Ingeniería \n y \n Calidad de Software \n ()"];
+        RdD[label="Redes de Datos \n ()"];
+    }
+    //Quinto
+    subgraph Quinto{
+        rank=same;
+        SdG[label="Sistemas de Gestión \n ()"];
+        IA[label="Inteligencia Artificial \n ()"];
+        CddD[label="Ciencia de Datos \n ()"];
+        PPS[label="Práctica Profesional Supervisada \n ()"];
+        GG[label="Gestión Gerencial \n ()"];
+        SS[label="Seguridad en Sistemas \n ()"];
+    }
+
+    //Dependencias
+    subgraph Dependencias{
+        AMI->AMII[];
+        AMI->PyE[];
+        AMI->E[];
+        AyGA->AMII[];
+        AyGA->PyE[];
+        FI->FII[];
+        FI->CdD[];
+        AyED->PdP[];
+        AyED->AdS[];
+        AyED->SySL[];
+        SyPdN->AdS[];
+        AdC->SO[];
+        ITI->ITII[];
+        LyED->PdP[];
+        LyED->SySL[];
+        ITI->DdS[];
+        AMII->AN[];
+        AMII->S[];
+        FII->TpA[];
+        PdP->DdS[];
+        PdP->DS[];
+        AdS->DdS[];
+        AdS->DS[];
+        AdS->BdD[];
+        SySL->BdD[];
+        SO->RdD[];
+        IyS->L[];
+        AN->SdG[];
+        AN->IO;
+        AN->IA[];
+        E->AddS[];
+        E->SdG[];
+        PyE->IO[];
+        PyE->S[];
+        DdS->AddS[];
+        DdS->IyCdS[];
+        DS->IyCdS[];
+        BdD->IyCdS[];
+        CdD->RdD[];
+        L->GG[];
+        IO->SdG[];
+        S->IA[];
+        S->CddD[];
+        AddS->PPS[];
+        AddS->SS[];
+        AddS->GG[];
+        IyCdS->PPS[];
+        RdD->SS[];
+        RdD->CddD[];
+    }
+}
